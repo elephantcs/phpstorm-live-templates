@@ -1,7 +1,0 @@
-<templateSet group="Wordpress">
-  <template name="wpq" value="                        &lt;?php /** @var WP_Query $query */&#10;                        $query = new WP_Query( [&#10;                            'post_type' =&gt; 'post',&#10;                            'posts_per_page' =&gt; -1,&#10;                            'post_status' =&gt; 'publish'&#10;                        ] ); ?&gt;&#10;                        &#10;                        &lt;?php if ( $query-&gt;have_posts() ) : ?&gt;&#10;&#10;                        &#9;&lt;?php while ( $query-&gt;have_posts() ) : $query-&gt;the_post(); ?&gt;&#10;                            &#10;                        &#9;&lt;?php endwhile; ?&gt;&#10;                        &#10;                        &lt;?php endif; ?&gt;&#10;                        &#10;                        &lt;?php wp_reset_postdata(); ?&gt;" description="WP Query in HTML" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="HTML" value="true" />
-    </context>
-  </template>
-</templateSet>

@@ -1,0 +1,32 @@
+<templateSet group="WordPress and ACF">
+  <template name="snip_wpqhtml" value="&lt;?php /** @var WP_Query $query */&#10;$query = new WP_Query( [&#10;    'post_type' =&gt; 'post',&#10;    'posts_per_page' =&gt; -1,&#10;    'post_status' =&gt; 'publish'&#10;] ); ?&gt;&#10;&#10;&lt;?php if ( $query-&gt;have_posts() ) : ?&gt;&#10;&#10;    &lt;?php while ( $query-&gt;have_posts() ) : $query-&gt;the_post(); ?&gt;&#10;    &#10;    &lt;?php endwhile; ?&gt;&#10;&#10;&lt;?php endif; ?&gt;&#10;&#10;&lt;?php wp_reset_postdata(); ?&gt;" description="WP Query in HTML" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="snip_wpqphp" value="$args = array (&#10;&#9;'post_type'&#9;&#9;&#9;&#9;=&gt; 'post_type',&#10;&#9;'post_status'&#9;&#9;&#9;=&gt; 'publish',&#10;&#9;'pagination'&#9;&#9;&#9;=&gt; true,&#10;&#9;'posts_per_page'&#9;&#9;=&gt; -1,&#10;&#9;'ignore_sticky_posts'&#9;=&gt; false,&#10;&#9;'order'&#9;&#9;&#9;&#9;&#9;=&gt; 'DESC',&#10;&#9;'orderby'&#9;&#9;&#9;&#9;=&gt; 'date',&#10;&#9;'meta_query'&#9;&#9;&#9;=&gt; array(&#10;&#9;&#9;array(&#10;&#9;&#9;&#9;'key'&#9;&#9;=&gt; 'custom_field_key',&#10;&#9;&#9;&#9;'value'&#9;&#9;=&gt; 'custom_field_value',&#10;&#9;&#9;&#9;'compare'&#9;=&gt; 'NOT IN', //LIKE, NOT LIKE, IN, BETWEEN, NOT BETWEEN, EXISTS&#10;&#9;&#9;),&#10;&#9;),&#10;&#9;'tax_query' =&gt; array(&#10;&#9;&#9;'relation' =&gt; 'AND',&#10;&#9;&#9;array(&#10;&#9;&#9;&#9;'taxonomy' =&gt; 'movie_genre',&#10;&#9;&#9;&#9;'field'    =&gt; 'slug',&#10;&#9;&#9;&#9;'terms'    =&gt; array( 'action', 'comedy' ),&#10;&#9;&#9;),&#10;&#9;&#9;array(&#10;&#9;&#9;&#9;'taxonomy' =&gt; 'actor',&#10;&#9;&#9;&#9;'field'    =&gt; 'term_id',&#10;&#9;&#9;&#9;'terms'    =&gt; array( 103, 115, 206 ),&#10;&#9;&#9;&#9;'operator' =&gt; 'NOT IN',&#10;&#9;&#9;),&#10;&#9;),&#10;);&#10;&#10;/** @var WP_Query $query */&#10;$query = new WP_Query( $args );&#10;&#10;if ( $query-&gt;have_posts() ) {&#10;&#9;while ( $query-&gt;have_posts() ) {&#10;&#9;&#9;$query-&gt;the_post();&#10;&#9;&#9;// do something&#10;&#9;}&#10;}&#10;&#10;wp_reset_postdata();" description="WP Query in PHP" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="snip_acfgfhtml" value="&lt;?php if ( $field_name = get_field( 'field_name' ) ) : ?&gt;&#10;&#9;&lt;?php echo $field_name; ?&gt;&#10;&lt;?php endif; ?&gt;" description="ACF: Get field in HTML" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="snip_acfrepeaterhtml" value="&lt;?php if( have_rows( 'field_name' ) ) : ?&gt;&#10;&#9;&#10;&#9;&lt;?php while ( have_rows( 'field_name' ) ) : the_row(); ?&gt;&#10;&#9;&#9;&#10;&#9;&#9;&lt;?php the_sub_field( 'sub_field_name' ); ?&gt;&#10;&#9;&#9;&#10;&#9;&lt;?php endwhile; ?&gt;&#10;&#9;&#10;&lt;?php endif; ?&gt;" description="ACF: Repeater in HTML" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+    </context>
+  </template>
+  <template name="snip_acfrepeaterwp" value="if( have_rows('repeater_field_name') ){&#10;&#10;    while ( have_rows('repeater_field_name') ){ &#10;&#9;&#9;the_row();&#10;&#10;        the_sub_field('sub_field_name');&#10;    &#10;    }&#10;}" description="ACF: Repeater in PHP" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="snip_acfgfphp" value="if ( $field_name = get_field( 'field_name' ) ){&#10;&#9;echo $field_name;&#10;}" description="ACF: Get field in PHP" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+</templateSet>
