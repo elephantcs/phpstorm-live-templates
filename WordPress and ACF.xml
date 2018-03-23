@@ -12,6 +12,7 @@
   <template name="snip_acfgfhtml" value="&lt;?php if ( $field_name = get_field( 'field_name' ) ) : ?&gt;&#10;&#9;&lt;?php echo $field_name; ?&gt;&#10;&lt;?php endif; ?&gt;" description="ACF: Get field in HTML" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="HTML" value="true" />
+      <option name="PHP" value="true" />
     </context>
   </template>
   <template name="snip_acfrepeaterhtml" value="&lt;?php if( have_rows( 'field_name' ) ) : ?&gt;&#10;&#9;&#10;&#9;&lt;?php while ( have_rows( 'field_name' ) ) : the_row(); ?&gt;&#10;&#9;&#9;&#10;&#9;&#9;&lt;?php the_sub_field( 'sub_field_name' ); ?&gt;&#10;&#9;&#9;&#10;&#9;&lt;?php endwhile; ?&gt;&#10;&#9;&#10;&lt;?php endif; ?&gt;" description="ACF: Repeater in HTML" toReformat="false" toShortenFQNames="true">
